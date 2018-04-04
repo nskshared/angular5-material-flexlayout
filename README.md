@@ -1,15 +1,15 @@
 # SurendraVisaTest
 
 ## Accomplished:
-Angular5
-Modular design with modules - reducing page load via chunks and on demand basis
-HTTP interceptor to handle req/resp
-Used Material Design
-e2e [just run ng e2e]
-Used Flexlayout
-Implemented Provider Custom Constant Types
-Inheritence
-Injectors
+Angular5<br />
+Modular design with modules - reducing page load via chunks and on demand basis<br />
+HTTP interceptor to handle req/resp<br />
+Used Material Design<br />
+e2e [just run ng e2e]<br />
+Used Flexlayout<br />
+Implemented Provider Custom Constant Types<br />
+Inheritence<br />
+Injectors<br />
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.6.
