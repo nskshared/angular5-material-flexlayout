@@ -4,12 +4,12 @@
       <mat-list role="list">
           <mat-list-item role="listitem">Name: {{holiday.name}}</mat-list-item>
           <mat-list-item role="listitem">Date: {{holiday.date}}</mat-list-item>
-          <mat-list-item role="listitem">ObservedOn : {{holiday.observed}}</mat-list-item>
-          <mat-list-item role="listitem">Is Public: {{holiday.name}}</mat-list-item>
+          <mat-list-item role="listitem" id="holiday-observed-date">ObservedOn : {{holiday.observed}}</mat-list-item>
+          <mat-list-item role="listitem">Is Public: {{holiday.public}}</mat-list-item>
         </mat-list>
   </mat-card-content>
   <mat-card-actions>
-      <button mat-raised-button routerLink="/list">Go back to List</button>
+      <button mat-raised-button color="warn" routerLink="/list" id="back-to-list">Go back to List</button>
   </mat-card-actions>
 </mat-card>
 

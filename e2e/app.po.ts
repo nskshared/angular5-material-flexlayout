@@ -5,6 +5,10 @@ export class SurendraVisaTestPage {
     return browser.get('/');
   }
 
+  navigateToHolidayList() {
+    return browser.get('/list');
+  }
+
   getParagraphText() {
     return element(by.css('app-root h1')).getText();
   }

@@ -1,8 +1,8 @@
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map'
 import { Injectable } from "@angular/core";
-import { Http, Request, RequestOptions, Response, Headers, RequestMethod } from '@angular/http';
-
+import { Request, RequestOptions, Response, Headers, RequestMethod } from '@angular/http';
+import { HttpClient, HttpRequest, HttpResponse } from '@angular/common/http';
 import { AppConst, APP_CONST } from "../../app.const";
 import { HolidayRequestImpl } from "../../common/model/impl/HolidayRequestImpl";
 import { HolidayResponse } from "../../common/model/HolidayResponse";
@@ -14,11 +14,11 @@ export class HolidayService {
     private trendItems: Observable<string[]>;
     headers: Headers;
     appConst: AppConst;
-    http: Http;
+    http: HttpClient;
 
     constructor() {
         this.appConst = ServiceLocator.injector.get(APP_CONST);
-        this.http = ServiceLocator.injector.get(Http);
+        this.http = ServiceLocator.injector.get(HttpClient);
         this.headers = new Headers();
         this.headers.append('Content-Type', 'application/json');
     }
@@ -27,14 +27,14 @@ export class HolidayService {
         if (!holidayRequest) {
             holidayRequest = new HolidayRequestImpl();
         }
-        const requestOptions = new RequestOptions({
-            method: RequestMethod.Get,
-            url: this.appConst.appConfig.HOLIDAY_BASE_URL + '?key=' + this.appConst.appConfig.HOLIDAY_API_KEY + this.getHolidayQueryString(holidayRequest),
-            // headers: this.headers
-        });
+        // const requestOptions = new RequestOptions({
+        //     method: 'GET',
+        //     url: this.appConst.appConfig.HOLIDAY_BASE_URL + '?key=' + this.appConst.appConfig.HOLIDAY_API_KEY + this.getHolidayQueryString(holidayRequest),
+        //     headers: this.headers
+        // });
 
         return Observable.create(observer => {
-            this.http.request(new Request(requestOptions))
+            this.http.get(this.appConst.appConfig.HOLIDAY_BASE_URL + '?key=' + this.appConst.appConfig.HOLIDAY_API_KEY + this.getHolidayQueryString(holidayRequest),)
                 .map(this.extractHolidayResponseData)
                 .subscribe((data) => {
                     observer.next(data);
@@ -57,10 +57,9 @@ export class HolidayService {
         return qs;
     }
 
-    private extractHolidayResponseData(res: Response): HolidayResponse {
-        const body = res.json();
-        if (body) {
-            return body as HolidayResponse;
+    private extractHolidayResponseData(res: HttpResponse<HolidayResponse>) {
+        if (res) {
+            return res;
         } else {
             return new HolidayResponseImpl();
         }

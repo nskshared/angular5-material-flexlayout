@@ -1,8 +1,16 @@
 # SurendraVisaTest
 
-PENDING:
-HTTP interceptor to handle req/resp and redirect
-Protractor e2e test
+## Accomplished:
+Angular5
+Modular design with modules - reducing page load via chunks and on demand basis
+HTTP interceptor to handle req/resp
+Used Material Design
+e2e [just run ng e2e]
+Used Flexlayout
+Implemented Provider Custom Constant Types
+Inheritence
+Injectors
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.6.
 

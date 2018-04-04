@@ -7,7 +7,7 @@
 <div *ngIf="holidayList">
     <mat-list role="list">
         <mat-list-item *ngFor="let holiday of holidayList.holidays; index as i" role="listitem">
-          <button mat-button (click)="onClickHoliday(i)">{{holiday.name}}</button>
+          <button  color="primary"  mat-button (click)="onClickHoliday(i)" id="{{holiday.name}}">{{holiday.name}}</button>
         </mat-list-item>
       </mat-list>
 </div>
